@@ -1,0 +1,42 @@
+import random
+def is_valid(help):
+    if help.isdigit() and 1<=int(help)<=int(a):
+        return True
+    return False
+print('Добро пожаловать в угадайку чисел!')
+flag2='+'
+while flag2=='+':
+    flag2, flag='', True
+    print('В каком диапазоне мне загадать число? От 1 до ', end=' ')
+    l=1
+    while flag==True:
+        a=input()
+        if is_valid(a)==True:
+                a=int(a)
+                break
+        else:
+                print('Введите любое целое число', end='  ')
+                if l==2:
+                    print('Неверно!', end='  ')
+                l+=1
+                flag=True
+    n=random.randint(1,a)
+    print('Я загадал число от 1 до', a, '  отгадай!', end='  ')
+    dig, count='', 0
+    while dig!=n:
+        dig=input()
+        count+=1
+        if is_valid(dig)==True:
+            dig=int(dig)
+        else:
+            print('Введите число от 1 до ', a, end='  ')
+            continue
+        if dig==n:
+            print('Ты угадал с', count, 'раза.', end='  ')
+            print('Для повторной игры введите +', end=' ')
+            flag2=input()
+        elif dig<n:
+            print('Загаданное число БОЛЬШЕ', end='  ')
+        else:
+            print('Загаданное число МЕНЬШЕ', end='  ')
+print('Спасибо, что играли в угадайку. Еще увидимся...')
